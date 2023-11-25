@@ -5,6 +5,7 @@ import com.cibersecurity.login.dto.UpdateUserDTO;
 import com.cibersecurity.login.dto.UserDTO;
 import com.cibersecurity.login.mapper.UserMapper;
 import com.cibersecurity.login.service.UserService;
+import com.cibersecurity.login.utils.HashService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -19,6 +20,8 @@ public class UserController implements UserApi {
 
     UserMapper userMapper;
 
+    HashService hashService;
+
     @Override
     public List<UserDTO> getUsers() {
         return userService.getUsers().stream().map(userMapper::fromUser).collect(Collectors.toList());
@@ -31,6 +34,7 @@ public class UserController implements UserApi {
 
     @Override
     public UserDTO updateUser(UpdateUserDTO updateUserDTO) {
+        updateUserDTO.setPassword(hashService.protectPassword(updateUserDTO.getPassword()));
         return userMapper.fromUser(userService.updateUser(userMapper.fromUpdateUser(updateUserDTO)));
     }
 

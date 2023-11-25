@@ -10,6 +10,9 @@
             </column>
             <column name="password" type="varchar(255)"/>
             <column name="last_connection" type="varchar(255)"/>
+            <column name="role_id" type="UUID">
+                <constraints nullable="false" references="USER_ROLE(role_id)" foreignKeyName="fk-user-role"/>
+            </column>
         </createTable>
     </changeSet>
 </databaseChangeLog>

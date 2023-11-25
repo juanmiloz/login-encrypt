@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.List;
 
+@CrossOrigin(origins = "*")
 @RequestMapping("/user")
 public interface UserApi {
 
@@ -17,5 +18,5 @@ public interface UserApi {
     UserDTO deleteUser(@PathVariable String username);
 
     @PutMapping()
-    UserDTO updateUser(@Valid @RequestBody UpdateUserDTO username);
+    UserDTO updateUser(@Valid @RequestBody UpdateUserDTO user);
 }

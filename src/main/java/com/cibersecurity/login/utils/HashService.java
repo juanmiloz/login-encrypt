@@ -5,15 +5,11 @@ import com.cibersecurity.login.error.exception.UserError;
 import com.cibersecurity.login.error.exception.UserException;
 import com.cibersecurity.login.model.Configuration;
 import com.cibersecurity.login.repository.ConfigurationRepository;
-import com.password4j.AlgorithmFinder;
 import com.password4j.Hash;
-import com.password4j.PBKDF2Function;
 import com.password4j.Password;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
-
-import java.util.Optional;
 
 
 @Component
