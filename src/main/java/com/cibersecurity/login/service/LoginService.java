@@ -8,5 +8,5 @@ import com.cibersecurity.login.model.User;
 public interface LoginService {
     TokenDTO login(LoginDTO loginDTO);
 
-    User createUser(User user);
+    TokenDTO createUser(User user);
 }

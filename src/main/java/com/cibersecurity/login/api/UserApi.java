@@ -11,11 +11,11 @@ import java.util.List;
 public interface UserApi {
 
     @GetMapping
-    List<UserDTO> getUsers();
+    List<UserDTO> getUsers(@RequestParam @Valid String token);
 
     @DeleteMapping({"/{username}"})
-    UserDTO deleteUser(@PathVariable String username);
+    UserDTO deleteUser(@RequestParam @Valid String token, @RequestParam @Valid String username);
 
     @PutMapping()
-    UserDTO updateUser(@Valid @RequestBody UpdateUserDTO username);
+    UserDTO updateUser(@RequestParam @Valid String token, @Valid @RequestBody UpdateUserDTO username);
 }

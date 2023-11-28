@@ -16,8 +16,8 @@ import javax.validation.Valid;
 public interface AuthApi {
 
     @PostMapping()
-    TokenDTO login(@RequestBody @Valid LoginDTO loginDTO, BindingResult bindingResult);
+    String login(@RequestBody @Valid LoginDTO loginDTO, BindingResult bindingResult);
 
     @PostMapping("/create")
-    UserDTO createUser(@RequestBody @Valid UserDTO userDTO, BindingResult bindingResult);
+    String createUser(@RequestBody @Valid UserDTO userDTO, BindingResult bindingResult);
 }

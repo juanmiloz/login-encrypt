@@ -11,6 +11,7 @@ import com.cibersecurity.login.error.exception.UserException;
 import com.cibersecurity.login.mapper.UserMapper;
 import com.cibersecurity.login.service.LoginService;
 import com.cibersecurity.login.utils.HashService;
+import com.cibersecurity.login.utils.JwtService;
 import com.password4j.Hash;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -31,24 +32,26 @@ public class AuthController implements AuthApi {
 
     HashService hashService;
 
+    JwtService jwtService;
+
     @Override
-    public TokenDTO login(LoginDTO loginDTO, BindingResult bindingResult) {
+    public String login(LoginDTO loginDTO, BindingResult bindingResult) {
         if(bindingResult.hasErrors()){
             throwInputError(bindingResult);
         }
 
         loginDTO.setPassword(hashService.protectPassword(loginDTO.getPassword()));
-        return loginService.login(loginDTO);
+        return jwtService.createJwt(loginService.login(loginDTO));
     }
 
     @Override
-    public UserDTO createUser(UserDTO userDTO, BindingResult bindingResult) {
+    public String createUser(UserDTO userDTO, BindingResult bindingResult) {
         if(bindingResult.hasErrors()){
             throwInputError(bindingResult);
         }
 
         userDTO.setPassword(hashService.protectPassword(userDTO.getPassword()));
-        return userMapper.fromUser(loginService.createUser(userMapper.fromDTO(userDTO)));
+        return jwtService.createJwt(loginService.createUser(userMapper.fromDTO(userDTO)));
     }
 
     private void throwInputError(BindingResult bindingResult){
