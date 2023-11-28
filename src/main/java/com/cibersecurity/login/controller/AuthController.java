@@ -33,19 +33,17 @@ public class AuthController implements AuthApi {
         if(bindingResult.hasErrors()){
             throwInputError(bindingResult);
         }
-
         loginDTO.setPassword(hashService.protectPassword(loginDTO.getPassword()));
-        System.out.println(loginDTO);
         return loginService.login(loginDTO);
     }
 
     @Override
     public UserDTO createUser(UserDTO userDTO, BindingResult bindingResult) {
+        System.out.println(userDTO);
         if(bindingResult.hasErrors()){
             throwInputError(bindingResult);
         }
         userDTO.setRoleId(UUID.fromString("ea95d591-2590-4d83-8415-d492a0f681d4"));
-
         userDTO.setPassword(hashService.protectPassword(userDTO.getPassword()));
         return userMapper.fromUser(loginService.createUser(userMapper.fromDTO(userDTO), userDTO.getRoleId()));
     }

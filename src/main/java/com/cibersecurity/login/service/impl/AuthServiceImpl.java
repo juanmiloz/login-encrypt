@@ -48,6 +48,7 @@ public class AuthServiceImpl implements LoginService {
             Map<String, String> claims = new HashMap<>();
             claims.put("username", user.getUsername());
             claims.put("roleId", user.getRole().getRoleId().toString());
+            claims.put("roleName", user.getRole().getRoleName());
             return new TokenDTO(JWTParser.createJWT(user.getUsername(), user.getUsername(), user.getUsername(), claims, 20* TokenTime.ONE_MINUTE.getTime()));
         }
         throw new UserException(HttpStatus.BAD_REQUEST, new UserError(CodesError.INVALID_CREDENTIALS.getCode(), CodesError.INVALID_CREDENTIALS.getMessage()));
@@ -65,8 +66,6 @@ public class AuthServiceImpl implements LoginService {
 
         user.setRole(roleFound);
 
-        User user1 = userRepository.save(user);
-        System.out.println(user1);
-        return user1;
+        return userRepository.save(user);
     }
 }

@@ -14,6 +14,12 @@ public interface UserApi {
     @GetMapping
     List<UserDTO> getUsers();
 
+    @GetMapping("/info")
+    UserDTO getOwnInfo();
+
+    @PutMapping("/info")
+    UserDTO updateOwnInfo(@Valid @RequestBody UpdateUserDTO user);
+
     @DeleteMapping({"/{username}"})
     UserDTO deleteUser(@PathVariable String username);
 

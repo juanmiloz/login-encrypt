@@ -15,7 +15,6 @@ public class LoginDTO {
     @NotBlank(message = "The username cannot be empty, please enter a valid username.")
     private String username;
 
-    @NotBlank(message = "The email cannot be empty, please enter a valid email.")
     private String password;
 
 }

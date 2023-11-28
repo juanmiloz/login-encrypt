@@ -11,7 +11,7 @@ public interface UserMapper {
 
     User fromDTO (UserDTO userDTO);
 
-    User fromUpdateUser(UpdateUserDTO updateUserDTO);
+    User fromUpdateUserDTO(UpdateUserDTO updateUserDTO);
 
     @Mapping(source = "role.roleId", target = "roleId")
     UserDTO fromUser(User user);
