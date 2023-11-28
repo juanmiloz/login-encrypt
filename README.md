@@ -16,6 +16,7 @@ Este informe documenta el desarrollo de el back-end de un sistema de autenticaci
 
 <h1>Dificultades</h1>
 <h5>Back:</h5>
+
 * La implementacion de la seguridad, porque es un reto nuevo para nuestro equipo.
 
 * Se dificulto a la hora de configurar la contraseña vacia para los usuarios desde el rol de administrador
@@ -23,6 +24,7 @@ Este informe documenta el desarrollo de el back-end de un sistema de autenticaci
 * Implementacion de JWT como standard porque consigo trae grandes desafios, principalmente por la poca experiencia con el, fue necesario aprender de la generacion y validacion de tokens, porque es de vital importancia el correcto funcionamiento para asi tener un servicio seguro y consistente
 
 <h5>Front:</h5>
+
 * Las peticiones por medio de Axios fue un reto importante, porque era una oportunidad de aprendizaje y por eso mismo un reto, es algo nuevo para este equipo   
 
 <h1>Conclusiones</h1>
