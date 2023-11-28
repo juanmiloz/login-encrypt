@@ -15,14 +15,14 @@ DAO (Data Access Object): El DAO es responsable de acceder a los datos almacenad
 Utilidades: La clase JWTUtil proporciona métodos para la generación y validación de tokens JWT. Estos métodos son utilizados para crear y verificar tokens en el proceso de autenticación y autorización.
 
 <h1>Dificultades</h1>
-Back:
+<h5>Back:</h5>
 La implementacion de la seguridad, porque es un reto nuevo para nuestro equipo.
 
 Se dificulto a la hora de configurar la contraseña vacia para los usuarios desde el rol de administrador
 
 Implementacion de JWT como standard porque consigo trae grandes desafios, principalmente por la poca experiencia con el, fue necesario aprender de la generacion y validacion de tokens, porque es de vital importancia el correcto funcionamiento para asi tener un servicio seguro y consistente
 
-Front:
+<h5>Front:</h5>
 Las peticiones por medio de Axios fue un reto importante, porque era una oportunidad de aprendizaje y por eso mismo un reto, es algo nuevo para este equipo   
 
 <h1>Conclusiones</h1>
